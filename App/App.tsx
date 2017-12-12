@@ -1,52 +1,33 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Platform } from 'react-native';
-import {
-  Container,
-  Button,
-  Header,
-  Content,
-  Footer,
-  Left,
-  Right,
-  Body,
-  Icon,
-  Title,
-  Drawer,
-} from 'native-base';
+import { Container } from 'native-base';
 import { Constants } from 'expo';
 import { addNavigationHelpers } from 'react-navigation';
 import { connect } from 'react-redux';
-
 import HomeScreen from './screens/HomeScreen';
 
-class App extends React.Component {
-  render() {
-    return (
-      <Container style={expoHeightFix}>
-        <HomeScreen navigation={addNavigationHelpers({
-          dispatch: this.props.dispatch,
-          state: this.props.nav,
-        })} />      
-      </Container>
-    );
-  }
+interface AppProps {
+  dispatch: any;
+  nav: any;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'red',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const app: React.SFC<AppProps> = ({ dispatch, nav }) => (
+  <Container style={expoHeightFix}>
+    <HomeScreen navigation={
+      addNavigationHelpers({
+        dispatch,
+        state: nav,
+      })} />      
+  </Container>
+);
 
-const expoHeightFix = {
+const expoHeightFix: any = {
   paddingTop: Constants.platform.ios.platform === 'ios' ? 0 : Constants.statusBarHeight,
 };
 
+const mapDispatchToProps = (dispatch: any) => ({ dispatch });
 const mapStateToProps = (state: any) => ({
   nav: state.nav,
 });
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(app);
