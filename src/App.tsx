@@ -6,12 +6,12 @@ import { addNavigationHelpers } from 'react-navigation';
 import { connect } from 'react-redux';
 import HomeScreen from './screens/HomeScreen';
 
-interface AppProps {
+interface props {
   dispatch: any;
   nav: any;
 }
 
-const app: React.SFC<AppProps> = ({ dispatch, nav }) => (
+const app: React.SFC<props> = ({ dispatch, nav }) => (
   <Container style={expoHeightFix}>
     <HomeScreen navigation={
       addNavigationHelpers({
@@ -26,8 +26,6 @@ const expoHeightFix: any = {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({ dispatch });
-const mapStateToProps = (state: any) => ({
-  nav: state.nav,
-});
+const mapStateToProps = ({ nav }: any) => ({ nav });
 
 export default connect(mapStateToProps, mapDispatchToProps)(app);
