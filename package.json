@@ -1,5 +1,5 @@
 {
-  "name": "reddit-android-client",
+  "name": "reddit-native-client",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
