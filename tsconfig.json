@@ -3,8 +3,8 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "baseUrl": "./node_modules/",
-    "jsx": "react-native",
+    "baseUrl": ".",
+    "jsx": "react",
     "outDir": "build",
     "rootDir": "./",
     "allowSyntheticDefaultImports": true,
@@ -15,12 +15,14 @@
     "sourceMap": true,
     "importHelpers": true,
     "lib": [
-      "es2015"
+      "es2015",
+      "es2016"
     ]
   },
   "exclude": [
     "build",
-    "node_modules"
+    "node_modules",
+    "jest"
   ],
   "compileOnSave": true
 }

@@ -10,6 +10,7 @@
     "babel-jest": "^21.2.0",
     "babel-preset-react-native": "^4.0.0",
     "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
     "jest-expo": "23.0.0",
     "jest-expo-ts": "^22.0.1",
     "react-addons-test-utils": "^15.6.2",
@@ -28,25 +29,39 @@
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "jest": {
-    "preset": "react-native",
+    "preset": "jest-expo",
     "transform": {
       "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "transformIgnorePatterns": [
-      "node_modules/(?!((jest-)?react-native|react-clone-referenced-element|expo(nent)?|@expo(nent)?/.*|react-navigation))",
-      "node_modules/(?!react-native|native-base-shoutem-theme|@shoutem/animation|@shoutem/ui|tcomb-form-native)"
+      "node_modules/(?!react-native|expo|react-navigation|native-base-shoutem-theme|@shoutem/theme|@shoutem/animation|@shoutem/ui|tcomb-form-native)"
     ],
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/",
+      "<rootDir>/lib/"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
       "js",
       "jsx",
-      "json",
-      "android.ts",
-      "android.tsx"
+      "json"
     ]
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-expo"
+    ],
+    "env": {
+      "development": {
+        "plugins": [
+          "transform-react-jsx-source"
+        ]
+      }
+    }
   },
   "dependencies": {
     "@types/expo": "^23.0.0",
