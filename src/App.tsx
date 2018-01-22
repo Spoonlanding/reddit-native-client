@@ -16,7 +16,7 @@ const app: React.SFC<props> = ({ dispatch, nav }) => (
       addNavigationHelpers({
         dispatch,
         state: nav,
-      })} />      
+      })} />
   </Container>
 );
 
