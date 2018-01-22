@@ -2,6 +2,7 @@ import * as React from 'react';
 import { createStore } from 'redux';
 import { Provider  } from 'react-redux';
 import { Font, AppLoading } from 'expo';
+import { addNavigationHelpers } from 'react-navigation';
 import reducers from './reducers';
 import App from './App';
 
@@ -11,6 +12,7 @@ const store: any = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ &&
   window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+
 
 export default class Root extends React.Component {
   constructor() {

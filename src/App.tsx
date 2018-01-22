@@ -1,24 +1,25 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Platform } from 'react-native';
 import { Container } from 'native-base';
-import { addNavigationHelpers } from 'react-navigation';
+import {
+  addNavigationHelpers,
+  DrawerNavigator,
+  NavigationContainer,
+} from 'react-navigation';
 import { connect } from 'react-redux';
 import HomeScreen from './screens/HomeScreen';
+
+import routes from './config/routes';
+import SideBar from './screens/SideBar/SideBar';
 
 interface props {
   dispatch: any;
   nav: any;
 }
 
-const app: React.SFC<props> = ({ dispatch, nav }) => (
-  <Container >
-    <HomeScreen navigation={
-      addNavigationHelpers({
-        dispatch,
-        state: nav,
-      })} />
-  </Container>
-);
+const app: NavigationContainer = DrawerNavigator(routes, {
+  contentComponent: (props: any) => <SideBar {...props} />,
+});
 
 const mapDispatchToProps = (dispatch: any) => ({ dispatch });
 const mapStateToProps = ({ nav }: any) => ({ nav });
