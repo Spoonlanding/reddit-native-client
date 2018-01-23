@@ -1,10 +1,10 @@
-import HomeScreen from '../screens/HomeScreen';
+import App from '../App';
 
-const initAction: any = HomeScreen.router.getActionForPathAndParams('Home');
-const initialState: any = HomeScreen.router.getStateForAction(initAction);
+const initAction: any = App.router.getActionForPathAndParams('Home');
+const initialState: any = App.router.getStateForAction(initAction);
 
 export default (state: any = initialState, action: any) => {
-  const nextState = HomeScreen.router.getStateForAction(action, state);
+  const nextState = App.router.getStateForAction(action, state);
 
   return nextState || state;
 };
