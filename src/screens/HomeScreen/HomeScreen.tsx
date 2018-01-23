@@ -1,16 +1,7 @@
 import * as React from 'react';
-import {
-  Container,
-  Button,
-  Header,
-  Content,
-  Footer,
-  Left,
-  Right,
-  Body,
-  Icon,
-  Title,
-} from 'native-base';
+import { Container } from 'native-base';
+
+import ScreenHeader from '../../components/ScreenHeader';
 
 interface props {
   navigation: any;
@@ -18,20 +9,7 @@ interface props {
 
 const HomeScreen: React.SFC<props> = ({ navigation }) => (
   <Container >
-    <Header>
-      <Left>
-        <Button transparent >
-          <Icon
-            name="menu"
-            onPress={() => navigation.navigate('DrawerOpen')}
-          />
-        </Button>
-      </Left>
-      <Body>
-        <Title>Home</Title>
-      </Body>
-      <Right />
-    </Header>
+    <ScreenHeader navigation={navigation} />
   </Container>
 );
 
