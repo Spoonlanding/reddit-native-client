@@ -1,16 +1,13 @@
+import 'react-native';
 import * as React from 'react';
-import { Container } from 'native-base';
-import { shallow, configure, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 
+// tslint:disable-next-line:import-name
 import Root from '../index';
-import Adapter from 'enzyme-adapter-react-16';
-
-configure({ adapter: new Adapter() });
 
 describe('<Root />', () => {
-  it('renders container correctly', () => {
+  it('renders as expected', () => {
     const wrapper: any = shallow(<Root />);
-    expect(wrapper).toHaveLength(1);
+    expect(wrapper).toMatchSnapshot();
   });
 });
-
