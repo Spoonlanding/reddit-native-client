@@ -15,8 +15,8 @@ const store: any = createStore(
 
 
 export default class Root extends React.Component {
-  constructor() {
-    super();
+  constructor(props: any) {
+    super(props);
     this.state = {
       isReady: false,
     };
@@ -33,12 +33,13 @@ export default class Root extends React.Component {
   }
 
   render() {
-    return this.state.isReady ? (
+    return (
+      this.state.isReady ? (
       <Provider store={store}>
         <App />
       </Provider>
     ) : (
       <AppLoading />
-    );
+    ));
   }
 }
