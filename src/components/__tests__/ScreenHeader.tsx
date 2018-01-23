@@ -9,7 +9,7 @@ describe('<ScreenHeader />', () => {
   const navigation: any = {
     navigate: jest.fn(),
     state: {
-      routeName: 'some route',
+      routeName: 'foo',
     },
   };
 
@@ -19,6 +19,10 @@ describe('<ScreenHeader />', () => {
 
   it('renders as expected', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders routeName as title', () => {
+    expect(wrapper.find('Styled(Title)').props().children).toEqual('foo');
   });
 
   it('opens drawer when menu icon is pressed', () => {

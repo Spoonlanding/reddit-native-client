@@ -14,7 +14,7 @@ exports[`<ScreenHeader /> renders as expected 1`] = `
   </Styled(Left)>
   <Styled(Body)>
     <Styled(Title)>
-      some route
+      foo
     </Styled(Title)>
   </Styled(Body)>
   <Styled(Right) />
