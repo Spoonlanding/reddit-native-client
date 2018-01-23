@@ -6,8 +6,18 @@ import { shallow } from 'enzyme';
 import Root from '../index';
 
 describe('<Root />', () => {
-  it('renders as expected', () => {
-    const wrapper: any = shallow(<Root />);
+  let wrapper: any;
+
+  beforeEach(() => {
+    wrapper = shallow(<Root />);
+  });
+
+  it('renders AppLoading before fonts have loaded', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders component when fonts have loaded', () => {
+    wrapper.setState({ isReady: true });
     expect(wrapper).toMatchSnapshot();
   });
 });
