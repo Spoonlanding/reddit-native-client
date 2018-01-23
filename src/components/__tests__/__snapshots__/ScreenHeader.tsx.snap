@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ScreenHeader /> renders as expected 1`] = `
+<Styled(Header)>
+  <Styled(Left)>
+    <Styled(Button)
+      transparent={true}
+    >
+      <Styled(Icon)
+        name="menu"
+        onPress={[Function]}
+      />
+    </Styled(Button)>
+  </Styled(Left)>
+  <Styled(Body)>
+    <Styled(Title)>
+      some route
+    </Styled(Title)>
+  </Styled(Body)>
+  <Styled(Right) />
+</Styled(Header)>
+`;
