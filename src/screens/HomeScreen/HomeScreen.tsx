@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Container } from 'native-base';
+import { Container, Content } from 'native-base';
 
 import ScreenHeader from '../../components/ScreenHeader';
 import FrontPage from '../../components/FrontPage';
@@ -11,7 +11,9 @@ interface props {
 const HomeScreen: React.SFC<props> = ({ navigation }) => (
   <Container >
     <ScreenHeader navigation={navigation} />
-    <FrontPage />
+    <Content>
+      <FrontPage />
+    </Content>
   </Container>
 );
 
