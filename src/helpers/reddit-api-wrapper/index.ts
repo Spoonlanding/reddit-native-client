@@ -9,7 +9,7 @@ export const getFrontPage = async () => {
       thumbnail: data.thumbnail.slice(0, 5) === 'https' ? data.thumbnail : null,
       flair: data.link_flair_text,
       author: data.author,
-      score: data.score,
+      score: data.score.length > 4 ? data.score : data.score.toString().slice(0, 2) + 'k',
       commentCount: data.num_comments,
     };
   });
